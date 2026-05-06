@@ -4,6 +4,11 @@
 #include <iosteream> // For cout
 #include <unistd.h> // For read
 int main(){
-    std:: cout << "Hey dude" << std::endl;
+   // Create a scoket (IPv4,TCP)
+   int sockfd = socket(AF_INET, SOCK_STREAM, 0);
+   if(sockfd == -1){
+    std:: cout <<"Failed to create socket. errno:"<< errno << std::endl;
+    exit(EXIT_FAILURE);
+   }
     return 0;
 }
